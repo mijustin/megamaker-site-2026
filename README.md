@@ -4,7 +4,7 @@ Rebuild [megamaker.co](https://megamaker.co/) as a simple static Astro landing p
 
 **Status:** Plan only. No Astro implementation or deployment yet. The live site, existing memberships, Slack workspace, payments, and DNS have not been changed.
 
-**Intended GitHub repository:** `mijustin/megamaker-site-2026` (private initially). Repository creation was attempted, but the connected GitHub credential lacks permission to create repositories. This README is prepared locally until the repository can be created.
+**GitHub repository:** [mijustin/megamaker-site-2026](https://github.com/mijustin/megamaker-site-2026) (private).
 
 ## Launch behavior
 
