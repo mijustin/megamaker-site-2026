@@ -1,0 +1,56 @@
+---
+import '../styles/global.css';
+import { isPreview } from '../lib/indexing';
+
+interface Props {
+  title?: string;
+  description?: string;
+  notFound?: boolean;
+}
+
+const {
+  title = 'MegaMaker — A private Slack community for bootstrappers',
+  description = 'Serving indie makers since 2013. A private Slack community for developers, designers, and product people who love making things. Not accepting new members at this time.',
+  notFound = false,
+} = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const image = new URL('/images/community.jpg', Astro.site);
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    {(isPreview || notFound) && <meta name="robots" content="noindex, nofollow" />}
+    {!notFound && <link rel="canonical" href={canonical} />}
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MegaMaker" />
+    {!notFound && <meta property="og:url" content={canonical} />}
+    <meta property="og:image" content={image} />
+    <meta property="og:image:alt" content="MegaMaker community members getting together" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+    <meta name="theme-color" content="#b71c1c" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="shell"><a class="wordmark" href="/" aria-label="MegaMaker home">MegaMaker<span aria-hidden="true">.</span></a></div>
+    </header>
+    <main id="main" tabindex="-1"><slot /></main>
+    <footer class="site-footer">
+      <div class="shell footer-inner">
+        <div><a class="wordmark" href="/">MegaMaker<span aria-hidden="true">.</span></a><p>Serving indie makers since 2013.</p></div>
+        <a href="mailto:words@megamaker.co">words@megamaker.co</a>
+      </div>
+    </footer>
+  </body>
+</html>
