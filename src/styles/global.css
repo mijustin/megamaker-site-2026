@@ -1,0 +1,76 @@
+:root {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #292929;
+  background: #fff;
+  font-synthesis: none;
+  --red: #b71c1c;
+  --black: #171717;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-size: 18px; line-height: 1.75; }
+a { color: var(--red); text-underline-offset: 4px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 3px solid currentColor; outline-offset: 5px; }
+h1, h2 { color: var(--black); line-height: 1.15; letter-spacing: -0.035em; text-wrap: balance; }
+h1 { font-size: clamp(2.6rem, 5.4vw, 4.5rem); margin: 0; font-weight: 800; }
+h2 { font-size: clamp(1.8rem, 3.4vw, 2.45rem); margin: 0 0 24px; }
+p { margin: 0 0 24px; }
+strong { font-weight: 700; }
+.shell { width: min(100% - 64px, 1080px); margin-inline: auto; }
+.site-header, .site-footer { background: var(--black); color: #fff; }
+.site-header { padding-block: 18px; }
+.wordmark { font-size: 28px; font-weight: 850; letter-spacing: -1.2px; color: #fff; text-decoration: none; }
+.wordmark span { color: #f05252; }
+.skip-link { position: absolute; top: 12px; left: 20px; padding: 8px 16px; background: #fff; z-index: 2; transform: translateY(-180%); }
+.skip-link:focus { transform: translateY(0); }
+.hero { background: var(--red); color: #fff; text-align: center; padding: 76px 0 66px; }
+.hero h1 { color: #fff; max-width: 900px; margin-inline: auto; }
+.eyebrow { font-size: 12px; font-weight: 750; text-transform: uppercase; letter-spacing: .14em; margin-bottom: 18px; }
+.hero-subtitle { font-size: 22px; margin: 26px 0 32px; }
+.membership-status { font-size: 16px; font-weight: 650; margin: 0; }
+.hero .membership-status { border-top: 1px solid #ffffff50; padding-top: 24px; display: inline-block; }
+.content { width: min(100% - 40px, 720px); margin: 0 auto; padding-block: 76px 88px; }
+.content section + section { margin-top: 76px; }
+.goals { padding-left: 24px; margin-block: 24px; font-weight: 650; }
+.goals li { padding-left: 4px; margin-block: 6px; }
+.goals li::marker { color: var(--red); }
+figure { margin: 36px 0 0; }
+img { display: block; max-width: 100%; height: auto; border-radius: 3px; }
+figcaption { margin-top: 12px; font-size: 14px; line-height: 1.6; color: #626262; }
+figure + p { margin-top: 28px; }
+.testimonial { padding: 30px 32px; background: #faf4f1; border-left: 4px solid var(--red); }
+blockquote { margin: 0; font-size: 23px; line-height: 1.6; letter-spacing: -.02em; }
+blockquote p { margin: 0; }
+.testimonial figcaption { margin-top: 22px; color: #292929; font-weight: 700; }
+.testimonial figcaption span { font-weight: 400; }
+.video { aspect-ratio: 16 / 9; background: #171717; margin-top: 28px; }
+.video iframe { display: block; width: 100%; height: 100%; border: 0; }
+.video-link { font-size: 14px; margin-top: 12px; }
+.membership { padding-top: 44px; border-top: 2px solid var(--black); }
+.membership .membership-status { color: var(--red); margin: 28px 0; }
+.qualification { font-size: 14px; color: #626262; line-height: 1.7; margin-bottom: 0; }
+.site-footer { padding-block: 42px; }
+.footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+.site-footer p { font-size: 14px; margin: 6px 0 0; color: #c4c4c4; }
+.site-footer a:not(.wordmark) { color: #fff; font-size: 15px; }
+.utility-page { padding-block: 88px 100px; max-width: 780px; min-height: 65vh; }
+.utility-page h1 { margin-bottom: 32px; }
+.utility-page .membership-status { color: var(--red); margin-bottom: 24px; }
+.back-link { display: inline-block; margin-top: 12px; font-weight: 650; }
+@media (max-width: 600px) {
+  body { font-size: 17px; }
+  h1 { font-size: clamp(2rem, 10.6vw, 2.6rem); }
+  .shell { width: calc(100% - 40px); }
+  .site-header { padding-block: 12px; }
+  .wordmark { font-size: 25px; }
+  .hero { padding-block: 48px 42px; }
+  .hero-subtitle { font-size: 18px; margin-block: 22px 28px; }
+  .hero .eyebrow { font-size: 10px; }
+  .membership-status { font-size: 15px; }
+  .content { padding-block: 48px 56px; }
+  .content section + section { margin-top: 52px; }
+  .testimonial { padding: 24px; }
+  blockquote { font-size: 20px; }
+  .footer-inner { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .utility-page { padding-block: 56px 64px; }
+}

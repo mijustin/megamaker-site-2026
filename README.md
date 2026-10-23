@@ -2,9 +2,29 @@
 
 Rebuild [megamaker.co](https://megamaker.co/) as a simple static Astro landing page hosted on Cloudflare Pages, replacing the public-facing membership website rather than recreating its application features.
 
-**Status:** Plan only. No Astro implementation or deployment yet. The live site, existing memberships, Slack workspace, payments, and DNS have not been changed.
+**Status:** Initial static Astro implementation is ready for local review: homepage, `/join`, and a custom 404. The existing public Slack screenshot is retained at Justin's request. No Cloudflare deployment or domain cutover has happened. The live site, existing memberships, Slack workspace, payments, and DNS have not been changed.
 
 **GitHub repository:** [mijustin/megamaker-site-2026](https://github.com/mijustin/megamaker-site-2026) (private).
+
+## Development
+
+Use Node **24.22.1** (pinned in `.node-version`), then:
+
+```sh
+npm ci
+npm run dev
+npm run check
+npm test
+npm run preview
+```
+
+`npm test` builds the production site and checks the closed-membership contract in the generated HTML. `npm run build` alone writes the deployable static site to `dist/`. No backend or environment secrets are needed.
+
+The shared closure message lives in `src/components/MembershipStatus.astro`. Do not enable checkout until the Stripe destination and fulfillment have been verified.
+
+Development and local preview responses use `X-Robots-Tag: noindex, nofollow`. For a portable non-production build, use `SITE_PREVIEW=1 npm run build`; Cloudflare Pages branches other than `main` are detected automatically. These builds also emit noindex metadata and disallow crawling in `robots.txt`. Production builds on `main` remain indexable. Cloudflare also adds noindex headers to its preview deployments.
+
+See [original homepage copy](docs/original-homepage.md) and the [asset/route inventory and launch gates](docs/migration-inventory.md). **Podcast archive and legacy URL decisions are still required before cutover.**
 
 ## Launch behavior
 
@@ -90,9 +110,9 @@ Connect the GitHub repository to Cloudflare Pages after implementation:
 | Build command | `npm run build` |
 | Output directory | `dist` |
 | Rendering | Static; no Cloudflare SSR adapter required |
-| Node.js | Pin a version supported by the chosen Astro release, consistently in local development and Pages |
+| Node.js | `24.22.1` (same as `.node-version`; set `NODE_VERSION` in Pages if needed) |
 
-These are future build settings; there is no package or build script in this planning-only repository yet.
+The package and build scripts now exist. These deployment settings have not yet been applied to Cloudflare.
 
 Review the Pages preview, then connect `megamaker.co` through Cloudflare's custom-domain flow. Check existing DNS, preserve email MX/TXT and unrelated records, and decide the `www` redirect. Save the old DNS values and keep old hosting available for rollback until production checks pass.
 
@@ -109,7 +129,7 @@ Cloudflare project creation, deployment, DNS changes, and retiring the old servi
 
 ## Source references
 
-These references were found in the public homepage HTML. Assets have not yet been downloaded or visually audited.
+These references were found in the public homepage HTML. The three content images have been downloaded and visually audited; the logo and original favicon return 404. See the inventory for the text-wordmark fallback and retained screenshot decision.
 
 - [Current homepage](https://megamaker.co/)
 - [Logo source](https://ucarecdn.com/9b6c3813-3ed8-4593-abf5-4b0a3a3ecc90/)

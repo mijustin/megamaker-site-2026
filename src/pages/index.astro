@@ -1,0 +1,77 @@
+---
+import Layout from '../layouts/Layout.astro';
+import MembershipStatus from '../components/MembershipStatus.astro';
+import { Image } from 'astro:assets';
+import community from '../assets/community.jpg';
+import world from '../assets/world.jpg';
+import slack from '../assets/slack.jpg';
+---
+<Layout>
+  <section class="hero" aria-labelledby="headline">
+    <div class="shell">
+      <p class="eyebrow">Independent makers. Shared ambition.</p>
+      <h1 id="headline">A private Slack community for bootstrappers</h1>
+      <p class="hero-subtitle">Serving indie makers since 2013</p>
+      <MembershipStatus />
+    </div>
+  </section>
+
+  <div class="content">
+    <section aria-labelledby="intro">
+      <h2 id="intro">For geeks who like making things</h2>
+      <p>MegaMaker is for geeks who ❤️ making things. We help developers, designers, and product people:</p>
+      <ul class="goals"><li>Make better stuff on the web.</li><li>Earn a better living from what they make.</li></ul>
+      <p>For some folks, “earning a better living” will mean bootstrapping a product business, but for others, it might mean building a side-project that earns $2k / year and helps them take their family to Disneyland.</p>
+      <p>Basically, we’re web workers who want <strong>more</strong> than a regular 9-5.</p>
+      <figure>
+        <Image src={community} alt="Six MegaMaker community members smiling together on a balcony" widths={[400, 720, 1000]} sizes="(max-width: 760px) calc(100vw - 40px), 720px" loading="lazy" />
+        <figcaption>Independent work doesn’t have to mean doing it alone.</figcaption>
+      </figure>
+    </section>
+
+    <section aria-labelledby="history">
+      <p class="eyebrow">How it started</p>
+      <h2 id="history">Our history</h2>
+      <p>In 2012, Kyle Fox and I started an interview podcast called <a href="https://productpeople.tv/">Product People</a>. We chatted with developers, designers, and founders about the process of making digital products. Folks like Jason Fried, Nathan Barry, and Adam Wathan.</p>
+      <p>Then, in 2013, I created this community for makers. I discovered many indie web creators had similar struggles: isolation, motivation, getting good feedback, and launching products.</p>
+      <p>Today, MegaMaker is home to makers from all over the world.</p>
+      <figure>
+        <Image src={world} alt="A historical community map showing MegaMaker members around the world" widths={[400, 720, 1000]} sizes="(max-width: 760px) calc(100vw - 40px), 720px" loading="lazy" />
+        <figcaption>A snapshot of our worldwide community from the original site.</figcaption>
+      </figure>
+      <p>We share our progress weekly, get feedback on our projects, and help each other when we launch something new.</p>
+    </section>
+
+    <section aria-labelledby="members">
+      <h2 id="members">Who are our members?</h2>
+      <p>Software developers, designers, product managers, and marketing managers. It’s for anyone who’s building and launching products. Some folks have launched full-time SaaS businesses, while others have built fun side projects. Everyone is welcome!</p>
+      <p><strong>It’s working:</strong> I’m extremely proud of what members have accomplished. Our alumni list includes Ryan Hoover (who started Product Hunt), William Channer (who started <a href="https://usepanda.com/">Panda</a>), Espree Dvora (who started <a href="https://podcast.wearelatech.com/">LA Tech</a>), and Robert Williams (who credits the club as the birthplace of <a href="https://www.folyo.me/">Folyo</a>):</p>
+      <figure class="testimonial">
+        <blockquote><p>“Having people you can ask questions to is extremely valuable. The club was literally the birthplace for my service, <a href="https://www.folyo.me/">Folyo</a>. They helped me start it a year ago and continue to help me improve it today.”</p></blockquote>
+        <figcaption>Robert Williams <span>— creator of Folyo</span></figcaption>
+      </figure>
+    </section>
+
+    <section aria-labelledby="slack">
+      <p class="eyebrow">A place to talk shop</p>
+      <h2 id="slack">Your virtual watercooler</h2>
+      <p>Use the <strong>private Slack</strong> to ask questions, get answers, and share progress.</p>
+      <figure>
+        <Image src={slack} alt="A MegaMaker member shares their first product’s marketing site in Slack, asks for feedback, and receives encouragement from another member" widths={[400, 720, 1000]} sizes="(max-width: 760px) calc(100vw - 40px), 720px" loading="lazy" />
+        <figcaption>A conversation from the community, as featured on the original site.</figcaption>
+      </figure>
+      <div class="video">
+        <iframe src="https://www.youtube-nocookie.com/embed/bgOowqCx8kM" title="An introduction to the MegaMaker community" width="720" height="405" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
+      </div>
+      <p class="video-link"><a href="https://www.youtube.com/watch?v=bgOowqCx8kM">Watch the introduction on YouTube ↗</a></p>
+    </section>
+
+    <section class="membership" aria-labelledby="membership">
+      <p class="eyebrow">How membership works</p>
+      <h2 id="membership">One membership. Lifetime access.</h2>
+      <p>Other membership sites charge monthly or annually. MegaMaker’s membership model is a one-time payment for lifetime access to our Slack.* We’ve been around since 2013 and have no plans to stop now!</p>
+      <MembershipStatus />
+      <p class="qualification">* “Lifetime access” refers to the lifetime of the site, not your individual lifetime. That being said, we’ve been going since 2013 and have no plans of quitting. Questions? Email me: <a href="mailto:words@megamaker.co">words@megamaker.co</a></p>
+    </section>
+  </div>
+</Layout>
